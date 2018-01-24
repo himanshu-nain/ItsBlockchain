@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e1953a</color>
-    <color name="colorPrimaryDark">#c36f09</color>
-    <color name="colorAccent">#a63c06</color>
+    <color name="colorPrimary">#010420</color>
+    <color name="colorPrimaryDark">#020621</color>
+    <color name="colorAccent">#d42300</color>
 
     <!--
 
@@ -20,6 +20,11 @@
     #FF212121
     #000000
     #a63c06
+
+    Purple Scheme
+    #010420
+    #020621
+    #d42300
 
 -->
 
