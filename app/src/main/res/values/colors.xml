@@ -3,4 +3,24 @@
     <color name="colorPrimary">#e1953a</color>
     <color name="colorPrimaryDark">#c36f09</color>
     <color name="colorAccent">#a63c06</color>
+
+    <!--
+
+    Blue scheme
+    #0061bc
+    #013b7e
+    #d42300
+
+    Original Scheme
+    #e1953a
+    #c36f09
+    #a63c06
+
+    Black Scheme
+    #FF212121
+    #000000
+    #a63c06
+
+-->
+
 </resources>
