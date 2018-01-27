@@ -1,8 +1,10 @@
 package com.itsblockchain.itsblockchain;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,11 +24,13 @@ import java.util.List;
  * Created by anonymous on 24/1/18.
  */
 
-public class FragmentPortfolio extends Fragment {
+public class FragmentPortfolio extends Fragment implements View.OnClickListener {
 
     RecyclerView recyclerView;
     CoinAdapter mAdapter;
     List<CoinData> mData;
+    FloatingActionButton mFab;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +39,8 @@ public class FragmentPortfolio extends Fragment {
 
         mData = new ArrayList<>();
         mAdapter = new CoinAdapter(getContext(), mData);
+        mFab = rootView.findViewById(R.id.add_);
+        mFab.setOnClickListener(this);
 
         recyclerView = rootView.findViewById(R.id.portfolio_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -62,5 +68,18 @@ public class FragmentPortfolio extends Fragment {
         mData.add(new CoinData("eth.png","ETH / Ethereum", 998.12, 2.12));
         mData.add(new CoinData("rip.png","XRP / Ripple", 1.42, -0.43));
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if(view == mFab){
+
+            startActivity(
+                    new Intent(getActivity(), SelectCoinActivity.class)
+            );
+
+        }
+
     }
 }

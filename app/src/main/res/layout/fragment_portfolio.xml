@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:background="@color/colorPrimary"
-        android:layout_height="200dp">
+        android:layout_height="250dp">
 
         <TextView
             android:id="@+id/assetCount"
@@ -18,26 +18,27 @@
             android:fontFamily="monospace"
             android:textAlignment="center"
             android:textColor="#fff"
+            android:layout_marginBottom="20dp"
             android:layout_centerInParent="true"
             android:textSize="40sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            app:tint="#fff"
+            app:fabSize="mini"/>
     </RelativeLayout>
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_add"
-        app:tint="#fff"
-        app:fabSize="mini"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/portfolio_recycler"
         android:layout_margin="5dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

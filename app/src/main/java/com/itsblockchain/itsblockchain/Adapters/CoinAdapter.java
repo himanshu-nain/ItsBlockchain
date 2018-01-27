@@ -1,8 +1,6 @@
 package com.itsblockchain.itsblockchain.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -38,7 +36,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.sample_coin, parent, false);
+                .inflate(R.layout.sample_portfolio_coin, parent, false);
         return new ViewHolder(view);
     }
 
