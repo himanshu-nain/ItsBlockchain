@@ -20,4 +20,8 @@ public class SelectCoinData {
     public String getSymbol() {
         return symbol;
     }
+
+    public String getFull(){
+        return name +' '+ symbol;
+    }
 }

@@ -3,6 +3,7 @@ package com.itsblockchain.itsblockchain.Adapters;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,13 @@ public class SelectCoinAdapter extends RecyclerView.Adapter<SelectCoinAdapter.Vi
         return mList.size();
     }
 
+    public void updateList(List<SelectCoinData> list){
+        mList=list;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
+
 
         TextView mName;
 
