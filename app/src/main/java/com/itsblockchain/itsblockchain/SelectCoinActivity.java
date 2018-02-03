@@ -103,7 +103,7 @@ public class SelectCoinActivity extends AppCompatActivity{
         Volley.newRequestQueue(this)
                 .add(
                         new StringRequest(Request.Method.GET,
-                                "https://api.coinmarketcap.com/v1/ticker/",
+                                "https://api.coinmarketcap.com/v1/ticker/?limit=1500",
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
