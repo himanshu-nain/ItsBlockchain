@@ -1,14 +1,17 @@
 package com.itsblockchain.itsblockchain.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.itsblockchain.itsblockchain.CoinDetail;
 import com.itsblockchain.itsblockchain.DataProviders.SelectCoinData;
 import com.itsblockchain.itsblockchain.R;
 
@@ -38,11 +41,21 @@ public class SelectCoinAdapter extends RecyclerView.Adapter<SelectCoinAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         String resultText = mList.get(position).getSymbol() + " / " +mList.get(position).getName();
         holder.mName.setText(resultText);
 
+        holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mContext.startActivity(new Intent(
+                        mContext, CoinDetail.class
+                ).putExtra("id", mList.get(position).getId()));
+
+            }
+        });
     }
 
     @Override
@@ -59,6 +72,7 @@ public class SelectCoinAdapter extends RecyclerView.Adapter<SelectCoinAdapter.Vi
 
 
         TextView mName;
+        LinearLayout mLinearLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -66,6 +80,7 @@ public class SelectCoinAdapter extends RecyclerView.Adapter<SelectCoinAdapter.Vi
             mName.setTypeface(
                     Typeface.createFromAsset(mContext.getAssets(), "fonts/Raleway-Regular.ttf")
             );
+            mLinearLayout = itemView.findViewById(R.id.coin_area);
         }
     }
 }

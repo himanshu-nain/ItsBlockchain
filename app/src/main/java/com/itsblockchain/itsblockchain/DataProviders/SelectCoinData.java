@@ -6,11 +6,16 @@ package com.itsblockchain.itsblockchain.DataProviders;
 
 public class SelectCoinData {
 
-    String name, symbol;
+    String id, name, symbol;
 
-    public SelectCoinData(String name, String symbol) {
+    public SelectCoinData(String id, String name, String symbol) {
+        this.id = id;
         this.name = name;
         this.symbol = symbol;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {

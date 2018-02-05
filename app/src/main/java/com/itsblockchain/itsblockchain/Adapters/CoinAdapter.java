@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.itsblockchain.itsblockchain.DataProviders.CoinData;
+import com.itsblockchain.itsblockchain.DataProviders.PortfolioCoinData;
 import com.itsblockchain.itsblockchain.R;
 
 import java.io.IOException;
@@ -25,9 +25,9 @@ import java.util.List;
 public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
     Context mContext;
-    List<CoinData> mList;
+    List<PortfolioCoinData> mList;
 
-    public CoinAdapter(Context mContext, List<CoinData> mList) {
+    public CoinAdapter(Context mContext, List<PortfolioCoinData> mList) {
         this.mContext = mContext;
         this.mList = mList;
     }

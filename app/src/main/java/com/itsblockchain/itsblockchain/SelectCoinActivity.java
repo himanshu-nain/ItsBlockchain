@@ -120,7 +120,7 @@ public class SelectCoinActivity extends AppCompatActivity{
                                                 object = array.getJSONObject(i);
 
                                                 coinDataList.add(
-                                                        new SelectCoinData(object.getString("name"), object.getString("symbol"))
+                                                        new SelectCoinData(object.getString("id"), object.getString("name"), object.getString("symbol"))
                                                 );
 
                                             }

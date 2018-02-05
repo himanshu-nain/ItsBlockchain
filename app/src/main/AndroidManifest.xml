@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.itsblockchain.itsblockchain">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +24,14 @@
         </activity>
         <activity
             android:name=".SelectCoinActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".CoinDetail"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".SelectCoinActivity">
+
+        </activity>
     </application>
 
 </manifest>

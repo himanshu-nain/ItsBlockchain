@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.itsblockchain.itsblockchain.Adapters.CoinAdapter;
-import com.itsblockchain.itsblockchain.DataProviders.CoinData;
+import com.itsblockchain.itsblockchain.DataProviders.PortfolioCoinData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
 
     RecyclerView recyclerView;
     CoinAdapter mAdapter;
-    List<CoinData> mData;
+    List<PortfolioCoinData> mData;
     FloatingActionButton mFab;
 
 
@@ -64,9 +64,9 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
     }
 
     private void load_data() {
-        mData.add(new CoinData("bit.png","BTC / Bitcoin", 11098.12, -12.223));
-        mData.add(new CoinData("eth.png","ETH / Ethereum", 998.12, 2.12));
-        mData.add(new CoinData("rip.png","XRP / Ripple", 1.42, -0.43));
+        mData.add(new PortfolioCoinData("bit.png","BTC / Bitcoin", 11098.12, -12.223));
+        mData.add(new PortfolioCoinData("eth.png","ETH / Ethereum", 998.12, 2.12));
+        mData.add(new PortfolioCoinData("rip.png","XRP / Ripple", 1.42, -0.43));
         mAdapter.notifyDataSetChanged();
     }
 
