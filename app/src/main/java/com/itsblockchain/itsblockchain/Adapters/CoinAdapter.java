@@ -53,17 +53,18 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
         }
         */
 
-        holder.mName.setText(mList.get(position).getName());
-        String value = "$ " + mList.get(position).getBuy_price();
+        String name = mList.get(position).getName() + " / " + mList.get(position).getSymbol();
+        holder.mName.setText(name);
+        String value = "BTC " + mList.get(position).getBuy_price();
         holder.mValue.setText(value);
 
-        if(Integer.parseInt(mList.get(position).getLast_change())>=0){
+        if(Double.parseDouble(mList.get(position).getLast_change())>=0){
             holder.mChange.setTextColor(Color.parseColor("#166910"));
             value = "$ " + mList.get(position).getLast_change();
             holder.mChange.setText(value);
         }else {
             holder.mChange.setTextColor(Color.parseColor("#b91311"));
-            value = "$ " + String.valueOf(-1 * Integer.parseInt(mList.get(position).getLast_change()));
+            value = "$ " + String.valueOf(-1 * Double.parseDouble(mList.get(position).getLast_change()));
             holder.mChange.setText(value);
         }
 

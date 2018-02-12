@@ -45,7 +45,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_BUY_PRICE + " TEXT,"
                 + KEY_BUY_QUANTITY + " TEXT,"
                 + KEY_BUY_AMOUNT + " TEXT,"
-                + KEY_LAST_CHANGE + " TEXT," +")";
+                + KEY_LAST_CHANGE + " TEXT" +")";
         sqLiteDatabase.execSQL(CREATE_COIN_TABLE);
 
     }
@@ -56,7 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void addContact(PortfolioCoinData coinData) {
+    public void addCoin(PortfolioCoinData coinData) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

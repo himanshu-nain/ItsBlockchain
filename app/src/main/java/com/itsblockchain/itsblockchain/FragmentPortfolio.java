@@ -43,7 +43,30 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
 
         mAsset = rootView.findViewById(R.id.assetCount);
 
-        mData = new ArrayList<>();
+        mHandler = new DatabaseHandler(getContext());
+        if(mHandler.getCoinCount()>0){
+            mData = mHandler.getAllCoins();
+
+            Double sum=0.0;
+
+            for(PortfolioCoinData coin : mData){
+
+                sum += Double.parseDouble(coin.getBuy_amount());
+
+            }
+            mAsset.setText("BTC "+String.valueOf(sum));
+
+        }else {
+            mData = new ArrayList<>();
+            Snackbar.make(getView(), "No coins in portfolio. Add some.", Snackbar.LENGTH_SHORT)
+                    .setAction("ADD", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getContext(), SelectCoinActivity.class));
+                        }
+                    }).show();
+            mAsset.setText("BTC 0");
+        }
         mAdapter = new CoinAdapter(getContext(), mData);
         mFab = rootView.findViewById(R.id.add_);
         mFab.setOnClickListener(this);
@@ -54,7 +77,6 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         recyclerView.setAdapter(mAdapter);
-        mHandler = new DatabaseHandler(getContext());
 
         return rootView;
     }
@@ -66,32 +88,6 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Raleway-Regular.ttf");
         TextView textView = view.findViewById(R.id.assetCount);
         textView.setTypeface(typeface);
-
-        if(mHandler.getCoinCount()>0){
-            initial_load();
-            Double sum=0.0;
-
-            for(PortfolioCoinData coin : mData){
-
-                sum += Double.parseDouble(coin.getBuy_amount());
-
-            }
-            mAsset.setText(String.valueOf(sum));
-        }else {
-            Snackbar.make(getView(), "No coins in portfoilio. Add some.", Snackbar.LENGTH_SHORT)
-                    .setAction("ADD", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            startActivity(new Intent(getContext(), SelectCoinActivity.class));
-                        }
-                    }).show();
-        }
-    }
-
-    private void initial_load() {
-
-        mData = mHandler.getAllCoins();
-        mAdapter.notifyDataSetChanged();
 
     }
 
