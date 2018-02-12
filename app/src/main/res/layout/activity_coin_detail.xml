@@ -37,15 +37,83 @@
 
         </android.support.v7.widget.Toolbar>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".60"
+                android:layout_height="wrap_content"
+                android:text="Current Price (USD)"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                />
+
+            <TextView
+                android:id="@+id/currentPrice"
+                android:layout_width="0dp"
+                android:layout_weight=".40"
+                android:layout_height="wrap_content"
+                android:text="8811.35"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".60"
+                android:layout_height="wrap_content"
+                android:text="Change (24Hr)"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                />
+
+            <TextView
+                android:id="@+id/changeInPrice"
+                android:layout_width="0dp"
+                android:layout_weight=".40"
+                android:layout_height="wrap_content"
+                android:text="9.86 %"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#ffffff"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
         <ToggleButton
             android:id="@+id/switch_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
             android:textColor="#fff"
             android:textOff="Trade"
             android:textOn="Watchlist"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </android.support.design.widget.AppBarLayout>
 
     <include
@@ -53,6 +121,27 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/coindetail_content" />
+        layout="@layout/coindetail_trade_content" />
+
+    <LinearLayout
+        android:id="@+id/watchlist_layout"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_below="@id/coindetail_appbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:fontFamily="cursive"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:padding="20dp"
+            android:text="@string/watchlist_text"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
