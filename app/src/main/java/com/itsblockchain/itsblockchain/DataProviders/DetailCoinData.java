@@ -5,4 +5,9 @@ package com.itsblockchain.itsblockchain.DataProviders;
  */
 
 public class DetailCoinData {
+
+    String id, name, symbol, rank, priceUSD, priceBTC;
+
+
+
 }

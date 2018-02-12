@@ -43,6 +43,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
+        /*
         InputStream is = null;
         try {
             is = mContext.getAssets().open("icons/"+mList.get(position).getImgUrl());
@@ -50,18 +51,19 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
 
         holder.mName.setText(mList.get(position).getName());
-        String value = "$ " + String.valueOf(mList.get(position).getValue());
+        String value = "$ " + mList.get(position).getBuy_price();
         holder.mValue.setText(value);
 
-        if(mList.get(position).getChange()>=0){
+        if(Integer.parseInt(mList.get(position).getLast_change())>=0){
             holder.mChange.setTextColor(Color.parseColor("#166910"));
-            value = "$ " + String.valueOf(mList.get(position).getChange());
+            value = "$ " + mList.get(position).getLast_change();
             holder.mChange.setText(value);
         }else {
             holder.mChange.setTextColor(Color.parseColor("#b91311"));
-            value = "$ " + String.valueOf(-1 * mList.get(position).getChange());
+            value = "$ " + String.valueOf(-1 * Integer.parseInt(mList.get(position).getLast_change()));
             holder.mChange.setText(value);
         }
 

@@ -52,7 +52,9 @@ public class SelectCoinAdapter extends RecyclerView.Adapter<SelectCoinAdapter.Vi
 
                 mContext.startActivity(new Intent(
                         mContext, CoinDetail.class
-                ).putExtra("id", mList.get(position).getId()));
+                ).putExtra("id", mList.get(position).getId())
+                .putExtra("name", mList.get(position).getName())
+                .putExtra("symbol", mList.get(position).getSymbol()));
 
             }
         });

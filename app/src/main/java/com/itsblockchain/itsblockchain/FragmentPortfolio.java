@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,12 +31,17 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
     CoinAdapter mAdapter;
     List<PortfolioCoinData> mData;
     FloatingActionButton mFab;
+    DatabaseHandler mHandler;
+
+    TextView mAsset;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_portfolio, container, false);
+
+        mAsset = rootView.findViewById(R.id.assetCount);
 
         mData = new ArrayList<>();
         mAdapter = new CoinAdapter(getContext(), mData);
@@ -48,6 +54,7 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         recyclerView.setAdapter(mAdapter);
+        mHandler = new DatabaseHandler(getContext());
 
         return rootView;
     }
@@ -60,14 +67,32 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
         TextView textView = view.findViewById(R.id.assetCount);
         textView.setTypeface(typeface);
 
-        load_data();
+        if(mHandler.getCoinCount()>0){
+            initial_load();
+            Double sum=0.0;
+
+            for(PortfolioCoinData coin : mData){
+
+                sum += Double.parseDouble(coin.getBuy_amount());
+
+            }
+            mAsset.setText(String.valueOf(sum));
+        }else {
+            Snackbar.make(getView(), "No coins in portfoilio. Add some.", Snackbar.LENGTH_SHORT)
+                    .setAction("ADD", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getContext(), SelectCoinActivity.class));
+                        }
+                    }).show();
+        }
     }
 
-    private void load_data() {
-        mData.add(new PortfolioCoinData("bit.png","BTC / Bitcoin", 11098.12, -12.223));
-        mData.add(new PortfolioCoinData("eth.png","ETH / Ethereum", 998.12, 2.12));
-        mData.add(new PortfolioCoinData("rip.png","XRP / Ripple", 1.42, -0.43));
+    private void initial_load() {
+
+        mData = mHandler.getAllCoins();
         mAdapter.notifyDataSetChanged();
+
     }
 
     @Override
