@@ -1,6 +1,7 @@
 package com.itsblockchain.itsblockchain;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,6 +50,8 @@ public class CoinDetail extends AppCompatActivity implements CompoundButton.OnCh
 
     LinearLayout mtradeLayout, mWatchLayout;
 
+    FloatingActionButton mFab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +77,14 @@ public class CoinDetail extends AppCompatActivity implements CompoundButton.OnCh
         mAmountInvested = findViewById(R.id.edt_amount);
         mQuantity = findViewById(R.id.edt_quantity);
         mAdd = findViewById(R.id.addButton);
+        mFab = findViewById(R.id.add_watchlist);
+
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override

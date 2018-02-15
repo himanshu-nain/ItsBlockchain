@@ -125,11 +125,11 @@
 
     <LinearLayout
         android:id="@+id/watchlist_layout"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
         android:layout_below="@id/coindetail_appbar">
 
         <TextView
@@ -142,6 +142,14 @@
             android:padding="20dp"
             android:text="@string/watchlist_text"/>
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_watchlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="16dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_add_white"/>
     </LinearLayout>
 
 </RelativeLayout>

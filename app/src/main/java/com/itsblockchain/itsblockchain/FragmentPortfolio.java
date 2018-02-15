@@ -10,10 +10,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.itsblockchain.itsblockchain.Adapters.CoinAdapter;
 import com.itsblockchain.itsblockchain.DataProviders.PortfolioCoinData;
@@ -58,6 +60,11 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
 
         }else {
             mData = new ArrayList<>();
+
+            Toast toast= Toast.makeText(getContext(), "No coins in portfolio. Add some.", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+            /*
             Snackbar.make(getView(), "No coins in portfolio. Add some.", Snackbar.LENGTH_SHORT)
                     .setAction("ADD", new View.OnClickListener() {
                         @Override
@@ -65,6 +72,7 @@ public class FragmentPortfolio extends Fragment implements View.OnClickListener 
                             startActivity(new Intent(getContext(), SelectCoinActivity.class));
                         }
                     }).show();
+            */
             mAsset.setText("BTC 0");
         }
         mAdapter = new CoinAdapter(getContext(), mData);
